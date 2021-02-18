@@ -1,0 +1,72 @@
+.badges {
+  display: flex;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 200;
+}
+
+.badges .badge {
+  padding: 1rem 2rem;
+  margin: 1rem 2rem;
+  text-align: center;
+  color: white;
+
+  h3 {
+    font-weight: 200;
+  }
+
+  h1 {
+    font-weight: 200;
+    font-size: 2rem;
+  }
+}
+
+.data {
+  margin: 2rem;
+  display: grid;
+  grid-template-columns: auto auto;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #4c4c4c;
+
+  table {
+    border: 1px solid #b7b7b7;
+    padding: 1rem;
+
+    .number {
+      text-align: right;
+    }
+
+    .green {
+      color: #3dd293;
+    }
+
+    .red {
+      color: #f343ac;
+    }
+  }
+
+  .chart {
+    margin: 2rem;
+    display: flex;
+
+    .bar {
+      align-self: flex-end;
+      width: 2rem;
+      background-color: black;
+      margin: 2rem;
+      position: relative;
+
+      p {
+        padding: 0;
+        margin: 0;
+        position: absolute;
+        bottom: -4rem;
+        width: 5rem;
+        transform: rotate( -90deg );
+        font-size: 0.95rem;
+        margin-left: -1.5rem;
+        margin-bottom: -1rem;
+        text-align: right;
+      }
+    }
+  }
+}

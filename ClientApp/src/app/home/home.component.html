@@ -1,0 +1,45 @@
+<div class="badges">
+  <div class="badge" style="background-color: #F343AC;">
+    <h3>Least Profitable</h3>
+    <h1>???</h1>
+  </div>
+  <div class="badge" style="background-color: #ED8164;">
+    <h3>Most Orders</h3>
+    <h1>???</h1>
+  </div>
+  <div class="badge" style="background-color: #8D61FE;">
+    <h3>Most Profitable</h3>
+    <h1>???</h1>
+  </div>
+  <div class="badge" style="background-color: #6BA8FC;">
+    <h3>Most Profitable</h3>
+    <h1>???</h1>
+  </div>
+</div>
+
+<div class="data">
+  <table>
+    <thead>
+      <tr>
+        <td>Client</td>
+        <td>Income</td>
+      </tr>
+    </thead>
+    <tr *ngFor="let client of clients">
+      <td>
+        {{ client.clientName }}
+      </td>
+      <td class="number" [ngClass]="{'green': client.Profit > 0, 'red': client.Profit < 0 }">
+        {{ client.totalSalesIncome | currency:0:'&pound;' }}
+      </td>
+    </tr>
+  </table>
+  <div class="chart">
+    <div class="bar" *ngFor="let client of clients; let i = index;" [ngStyle]="{'height': ((client.totalSalesIncome / mostIncome.totalSalesIncome)*100) + '%', 'background-color': colours[i]}">
+      <p>{{ client.clientName }}</p>
+    </div>
+
+
+
+  </div>
+</div>
