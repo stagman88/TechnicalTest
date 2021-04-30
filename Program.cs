@@ -6,14 +6,21 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WebApplication2021.Models;
 
 namespace WebApplication2021
 {
     public class Program
     {
+
         public static void Main(string[] args)
         {
-            CreateHostBuilder(args).Build().Run();
+            var host = CreateHostBuilder(args).Build();
+
+            DataGenerator.Initialize();
+
+            host.Run();
+
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>

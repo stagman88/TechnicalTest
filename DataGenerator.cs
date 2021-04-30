@@ -1,42 +1,37 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using WebApplication2021.Models;
 
-namespace WebApplication2021.Controllers
+namespace WebApplication2021
 {
-    [ApiController]
-    [Route("/api/static")]
-    public class StaticController : ControllerBase
+    public class DataGenerator
     {
-        private static readonly string[] Clients = new[]
-       {
-            "Fantastic Flipflops",
-            "Advanced Acrobatic Androids", 
-            "Chunky Chewbacca Cookies", 
-            "Legally Legal Services", 
-            "Deviously Delicious Delicacies",
-            "Green Garden Grandpas",
-            "Perky Pet Pampering", 
-            "La Loca Lunches"
-        };
+        private static string[] Clients = new[]
+                   {
+                "Fantastic Flipflops",
+                "Advanced Acrobatic Androids",
+                "Chunky Chewbacca Cookies",
+                "Legally Legal Services",
+                "Deviously Delicious Delicacies",
+                "Green Garden Grandpas",
+                "Perky Pet Pampering",
+                "La Loca Lunches"
+            };
 
-        private readonly ILogger<StaticController> _logger;
-
-        public StaticController(ILogger<StaticController> logger)
+        public static void Initialize()
         {
-            _logger = logger;
-        }
+            using (var db = new WebAppDbContext())
+            {
 
-        [HttpGet]
-        [Route("populatestaticdata")]
-        public void PopulateStaticData()
-        {
+                if (db.Products.Any())
+                {
+                    return;
+                }
 
-            using (var db = new WebAppDbContext()) {
+                db.Database.EnsureCreated();
 
                 // Add a half dozen products.
                 db.Products.Add(new Product()
@@ -83,7 +78,7 @@ namespace WebApplication2021.Controllers
                     ProductSalePrice = 7500
                 });
 
-                
+
 
                 // Add a number of clients.
                 foreach (var clientName in Clients)
@@ -110,7 +105,7 @@ namespace WebApplication2021.Controllers
                     db.Clients.Add(newClient);
                 }
 
-                
+
 
                 db.SaveChanges();
             }

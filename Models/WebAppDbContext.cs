@@ -14,7 +14,7 @@ namespace WebApplication2021.Models
         public DbSet<Sale> Sales { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
-                => options.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=WebApp2021;MultipleActiveResultSets=true");
+                => options.UseInMemoryDatabase("ClientProfitTest");
 
     }
 }
