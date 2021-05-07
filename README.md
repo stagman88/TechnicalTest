@@ -1,4 +1,4 @@
-<img src="https://github.com/computerconquest/TechnicalTest/blob/main/techtestwelcome.svg" alt="We appreciate you taking the time to participate in our technical test.">
+<img src="https://github.com/computerconquest/TechnicalTest/blob/master/techtestwelcome.svg" alt="We appreciate you taking the time to participate in our technical test.">
 
 # The scenario
 
