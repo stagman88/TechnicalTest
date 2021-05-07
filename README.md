@@ -1,3 +1,5 @@
+<img src="https://github.com/computerconquest/TechnicalTest/blob/main/techtestwelcome.svg" alt="We appreciate you taking the time to participate in our technical test.">
+
 # The scenario
 
 We have a client who has asked us to build a reporting portal for them. They specifically asked to be given information about their clients and how much income they get from each client.
