@@ -22,6 +22,7 @@ We'd like you to timebox this. Your time is important. We normally budget about 
 
 - NodeJS https://nodejs.org/en/
 - DotNet 5 SDK https://dotnet.microsoft.com/download/dotnet/5.0
+- Angular 11 CLI https://angular.io/cli
 - Visual Studio Code (Or Visual Studio) https://code.visualstudio.com/
 
 ## Running
