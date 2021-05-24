@@ -14,7 +14,6 @@ export class HomeComponent {
 
   public clients: ClientSalesProfit[];
   public mostIncome: ClientSalesProfit;
-
   public leastProfit: ClientSalesProfit;
   public mostProfit: ClientSalesProfit;
   public mostOrders: ClientSalesProfit;
@@ -31,6 +30,11 @@ export class HomeComponent {
     '#BDEF29'
   ];
 
+  SortByParam = '';
+  SortDirection = 'asc';
+  display = false;
+  sales;
+
   constructor(private salesReportingService: SalesReportingService, private clientService: ClientsService) {
 
   }
@@ -45,7 +49,18 @@ export class HomeComponent {
         }
       });
     });
-
   }
 
+  onSortDirection() {
+    if (this.SortDirection === 'desc') {
+      this.SortDirection = 'asc';
+    } else {
+      this.SortDirection = 'desc';
+    }
+  }
+
+  selected() {
+    this.display = true;
+  }
 }
+

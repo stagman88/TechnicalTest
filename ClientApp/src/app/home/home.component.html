@@ -1,21 +1,33 @@
 <div class="badges">
   <div class="badge" style="background-color: #f343ac">
     <h3>Least Profitable</h3>
-    <h1>???</h1>
+     <h1 *ngIf="SortDirection === 'asc'">{{this.clients[0].clientName}}</h1>
+     <h1 *ngIf="SortDirection === 'desc'">{{this.clients[7].clientName}}</h1>
   </div>
-  <div class="badge" style="background-color: #ed8164">
+  <div class="badge" style="background-color: #ed8164" *ngIf=this.mostOrders>
     <h3>Most Orders</h3>
     <h1>???</h1>
   </div>
   <div class="badge" style="background-color: #8d61fe">
     <h3>Most Profitable</h3>
-    <h1>???</h1>
+    <h1 *ngIf="SortDirection === 'asc'">{{this.clients[7].clientName}}</h1>
+     <h1 *ngIf="SortDirection === 'desc'">{{this.clients[0].clientName}}</h1>
   </div>
-  <div class="badge" style="background-color: #6ba8fc">
+  <div class="badge" style="background-color: #6ba8fc" *ngIf=this.mostProfitableProduct>
     <h3>Most Profitable Product</h3>
     <h1>???</h1>
   </div>
 </div>
+
+<label class="SortLabel">Sort by:</label>
+<select class="SortSelect" [(ngModel)] = 'SortByParam' (click)="selected()">
+  <option value='totalSalesIncome'>Profit</option>
+</select>
+
+<button class="SortButton" type="button" (click)='onSortDirection()'>
+  <i *ngIf="SortDirection === 'asc'"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1em" height="1em" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="none" stroke="#626262" stroke-width="2" d="M2 8l6-6l6 6m-3 13h11m-11-4h8m-8-4h5M8 2v20"/></svg></i>
+  <i *ngIf="SortDirection === 'desc'"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1em" height="1em" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="none" stroke="#626262" stroke-width="2" d="M2 16l6 6l6-6M11 3h11M11 7h8m-8 4h5M8 22V2"/></svg></i>
+</button>
 
 <div class="data">
   <table>
@@ -25,7 +37,7 @@
         <td>Income</td>
       </tr>
     </thead>
-    <tr *ngFor="let client of clients">
+    <tr *ngFor="let client of clients | sort:[SortByParam, SortDirection]">
       <td>
         {{ client.clientName }}
       </td>
@@ -40,7 +52,7 @@
   <div class="chart">
     <div
       class="bar"
-      *ngFor="let client of clients; let i = index"
+      *ngFor="let client of clients | sort:[SortByParam, SortDirection]; let i = index"
       [ngStyle]="{
         height:
           (client.totalSalesIncome / mostIncome.totalSalesIncome) * 100 + '%',

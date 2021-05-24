@@ -11,6 +11,7 @@ import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { ClientsService } from './services/clients';
 import { SalesReportingService } from './services/salesreporting';
+import { SortPipe } from './pipe/sort';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { SalesReportingService } from './services/salesreporting';
     HomeComponent,
     CounterComponent,
     FetchDataComponent,
+    SortPipe
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

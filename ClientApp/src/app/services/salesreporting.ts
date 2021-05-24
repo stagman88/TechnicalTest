@@ -31,7 +31,6 @@ export class SalesReportingService {
 
   public fetchClientSalesProfit(): Observable<ClientSalesProfit[]> {
     return this.http.get<ClientSalesProfit[]>(this.apiBaseUrl + "/salesreporting/clientsalesprofit");
-    
   }
 
 }
