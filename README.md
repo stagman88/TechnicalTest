@@ -40,7 +40,9 @@ We'd like you to timebox this. Your time is important. We normally budget about 
 
 ## Backend
 
-The backend is C# using WebApi and EntityFramework (an ORM which helps us translate between C# objects and relational databases).
+The backend is C# using WebApi and EntityFramework (an ORM which helps us translate between C# objects and relational databases). We use LINQ to create queries that are translated by Entity Framework into SQL.
+
+We're using an in memory database for this, as it's easy to distribute. You can see where the data is seeded in DataGenerator.cs.
 
 ### Models
 
@@ -70,10 +72,12 @@ This is a pretty simple app. We've only got one main component at the moment and
 
 # What to do
 
+- Get your environment up and running and send me a screenshot of it loaded up in your browser.
 - Update the basic reporting portal using the supplied .Net/Angular framework (I know! It's very basic, but it should do the job!)
   - We want to know how much profit we're making from each client
   - The badges at the top were intended to display the top clients/products
   - What sort of user experience improvements would you make?
+- Describe how the chart works. (No tricks here, just basics of how it figures out how tall the bars should be.)
 
 Feel free to add any comments you want to the bottom of this or send it to us at the end.
 
@@ -88,3 +92,12 @@ Use whatever tools/Google-fu you'd normally use. Also, don't beat your head on y
 # When you're done
 
 Zip everything up and send it to careers@ccqltd.com
+
+Didn't finish everything? Send what you've done, 2 hours isn't a ton of time and we'd like to see what you did!
+
+# Tips
+
+- Start from the browser and work your way back. This is a great way to figure out how the app currently works.
+- Be sure to use breakpoints. Breakpoints in your browser developer tools, breakpoints in VS code for any C# code.
+- Almost all of the modifications we've asked for have very similar examples in place. You should be able to achieve nearly everything by copying/pasting and slightly modifying existing code.
+- If you're not familiar with some of the technology and you're struggling with something, please remember to ask questions. We're not here to find out if you know about our specific stack, we're looking to see how you approach the problem.
